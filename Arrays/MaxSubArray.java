@@ -1,3 +1,6 @@
+//Kadane's Algorithm
+//Time Complexity: O(n)
+//Space Complexity: O(1)
 public class MaxSubArray {
     public static int maxSubArray(int[] arr){
         if(arr.length==0){
