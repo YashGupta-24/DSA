@@ -1,25 +1,13 @@
 package Recursion;
-import java.util.*;
-public class Permutation {
-    public static ArrayList<String> stringPermutation(String s){
-        ArrayList<String> result=new ArrayList<>();
-        stringHelper("", s, result);
-        return result;
-    }
-    public static void stringHelper(String r, String s, ArrayList<String> result){
-        if (s.isEmpty()) {
-            result.add(r);
-            return;
-        }
-        for(int i=0;i<=r.length();i++){
-            stringHelper(r.substring(0,i)+s.charAt(0)+r.substring(i),s.substring(1), result);
-        }
-    }
 
+import java.util.*;
+
+public class Permutations2 {
     public static ArrayList<ArrayList<Integer>> arrayPermutation(int[] nums){
         ArrayList<ArrayList<Integer>> result=new ArrayList<>();
         ArrayList<Integer> output=new ArrayList<>();
         boolean[] freq=new boolean[nums.length];
+        Arrays.sort(nums);
         arrayHelper(nums, result, output, freq);
         return result;
     }
@@ -30,7 +18,7 @@ public class Permutation {
             return;
         }
         for(int i=0;i<nums.length;i++){
-            if(freq[i]) continue;
+            if(freq[i] || (i>0 && nums[i]==nums[i-1] && !freq[i-1])) continue;
             freq[i]=true;
             output.add(nums[i]);
             arrayHelper(nums, result, output, freq);
@@ -38,13 +26,9 @@ public class Permutation {
             freq[i]=false;
         }
     }
-
     public static void main(String[] args) {
-        String s="abc";
-        ArrayList<String> r=stringPermutation(s);
+        int[] nums={1,1,2};
+        ArrayList<ArrayList<Integer>> r=arrayPermutation(nums);
         System.out.println(r);
-
-        int[] nums={1,2,3};
-        System.out.println(arrayPermutation(nums));
     }
 }
