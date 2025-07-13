@@ -13,12 +13,21 @@ public class JobScheduling {
             map[i][2]=profit[i];
         }
 
-        Arrays.sort(map, (x, y) -> Integer.compare(y[2],x[2]));
-        Arrays.sort(map, (x, y) -> Integer.compare(y[1],x[1]));
+        Arrays.sort(map, (x, y) -> Integer.compare(x[2],y[2]));
+        Arrays.sort(map, (x, y) -> Integer.compare(x[1],y[1]));
+
+        int[] store=new int[map[map.length-1][2]];
 
         for(int i=0;i<map.length;i++){
             if(map[i][1]>=count){
-                maxProfit+=map[i][2];
+                count=map[i][1];
+                store[count-1]=Math.max(store[count-1], map[i][2]);
+            }
+        }
+        count=0;
+        for(int i=0;i<store.length;i++){
+            if(store[i]!=0){
+                maxProfit+=store[i];
                 count++;
             }
         }
@@ -31,5 +40,9 @@ public class JobScheduling {
         int[] deadline={4, 1, 1, 1};
         int[] profit={20, 10, 40, 30};
         System.out.println(jobSequencing(deadline, profit));
+        int[] deadline2={2, 1, 2, 1, 1};
+        int[] profit2={100, 19, 27, 25, 15};
+        System.out.println(jobSequencing(deadline2, profit2));
+        
     }
 }
