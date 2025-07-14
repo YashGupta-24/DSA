@@ -16,7 +16,7 @@ public class MaxHeap {
     }
     public static void main(String[] args) {
         ArrayList<Integer> a=new ArrayList<>();
-        ArrayList<Integer> sorted=new ArrayList<>();
+        // ArrayList<Integer> sorted=new ArrayList<>();
         insert(a, 8);
         insert(a, 7);
         insert(a, 9);
