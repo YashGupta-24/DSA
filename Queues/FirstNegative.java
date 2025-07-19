@@ -1,30 +1,31 @@
 import java.util.*;
+import java.util.Deque;
 
 public class FirstNegative {
     public static List<Integer> firstNegInt(int arr[], int k){
         List<Integer> result=new ArrayList<>();
-        Queue<Integer> q=new LinkedList<>();
+        Deque<Integer> q=new ArrayDeque<>();
         int l=0;
         
         for(int r=0;r<arr.length;r++){
             if(arr[r]<0)
-            q.add(arr[r]);
+            q.addLast(r);
 
-            while((r-l+1)>k && !q.isEmpty()){
-                if(q.peek()==arr[l])
-                q.remove();
+            while(!q.isEmpty() && (r-l+1)>k){
+                if(q.peek()==l)
+                q.removeFirst();
 
                 l++;
             }
 
             if((r-l+1)==k){
-                result.add((q.peek()==null)?0:q.peek());
+                result.add((q.peek()==null)?0:arr[q.peek()]);
             }
         }
         return result;
     }
     public static void main(String[] args) {
-        int[] arr={12, -1, -7, 8, -15, 30, 16, 28};
-        System.out.println(firstNegInt(arr, 3));
+        int[] arr={-8, 2, 3, -6, 10};
+        System.out.println(firstNegInt(arr, 2));
     }
 }
