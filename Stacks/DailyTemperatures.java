@@ -3,12 +3,7 @@ import java.util.*;
 public class DailyTemperatures {
     public static int[] dailyTemperatures(int[] temperatures){
         Stack<int[]> stack=new Stack<>();
-        // HashMap<Integer, Integer> map=new HashMap<>();
         int[] result=new int[temperatures.length];
-
-        // for(int i=0;i<temperatures.length;i++){
-        //     map.put(temperatures[i],i);
-        // }
 
         for(int i=temperatures.length-1;i>=0;i--){
             while(!stack.isEmpty() && temperatures[i]>=stack.peek()[1]){
@@ -17,9 +12,9 @@ public class DailyTemperatures {
             if(stack.isEmpty())
             result[i]=0;
             else
-            result[i]=map.get(stack.peek())-i;
+            result[i]=stack.peek()[0]-i;
 
-            stack.push(temperatures[i]);
+            stack.push(new int[]{i, temperatures[i]});
         }
         return result;
     }
