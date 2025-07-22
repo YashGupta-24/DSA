@@ -1,4 +1,4 @@
-package Stacks;
+// package Stacks;
 import java.util.*;
 public class MinStack {
     static Stack<ArrayList<Integer>> stack=new Stack<>();

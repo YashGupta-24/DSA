@@ -1,4 +1,4 @@
-package Stacks;
+// package Stacks;
 import java.util.*;
 public class ALStack {
     static ArrayList<Integer> stack=new ArrayList<>();

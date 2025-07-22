@@ -1,4 +1,4 @@
-package Stacks;
+// package Stacks;
 
 public class ArrayStack {
     static int[] stack=new int[1000];

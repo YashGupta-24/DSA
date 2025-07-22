@@ -1,4 +1,4 @@
-package Stacks;
+// package Stacks;
 import java.util.*;
 public class DailyTemperatures {
     public static int[] dailyTemperatures(int[] temperatures){
