@@ -8,4 +8,9 @@ public class SumN {
         int n=5;
         System.out.println(sum(n));
     }
+
+    /*
+     * Time Complexity: O(n)
+     * Space Complexity: O(n)
+     */
 }

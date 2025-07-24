@@ -7,4 +7,7 @@ public class Fibonacci {
         int n=2;
         System.out.println(fib(n));
     }
+
+    //Time Complexity: O(2^n)
+    //Space Complexity: O(n)
 }

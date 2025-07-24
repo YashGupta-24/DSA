@@ -7,4 +7,8 @@ public class SumDigit {
         int[] a={1,2,3};
         System.out.println(sumDigit(a, 0));
     }
+    /*
+     * TC:O(n)
+     * SC:O(n)
+     */
 }

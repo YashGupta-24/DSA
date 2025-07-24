@@ -9,4 +9,8 @@ public class PrintN {
     public static void main(String[] args) {
         printN(6);
     }
+    /*
+     * TC:O(n)
+     * SC:O(n)
+     */
 }

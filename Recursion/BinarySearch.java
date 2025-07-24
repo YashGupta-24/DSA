@@ -15,4 +15,8 @@ public class BinarySearch {
         int[] a={1,2,3,4,5};
         System.out.println(binarySearch(a, 0, a.length-1, 10));
     }
+    /*
+     * TC:O(log n)
+     * SC:O(log n)
+     */
 }
