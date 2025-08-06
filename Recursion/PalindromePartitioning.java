@@ -28,6 +28,8 @@ public class PalindromePartitioning {
         while(lb<ub){
             if(s.charAt(lb)!=s.charAt(ub))
             return false;
+            lb++;
+            ub--;
         }
         return true;
     }
