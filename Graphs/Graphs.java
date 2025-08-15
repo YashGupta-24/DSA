@@ -1,6 +1,5 @@
 
-import java.util.ArrayList;
-
+import java.util.*;
 public class Graphs{
     static class Edge{
     int source;
@@ -23,7 +22,9 @@ public class Graphs{
         @SuppressWarnings("unchecked")
         ArrayList<Edge>[] graph = (ArrayList<Edge>[]) new ArrayList[V];
         createGraph(graph, V);
-        printNeighbors(graph);
+        // printNeighbors(graph);
+        boolean[] visited=new boolean[V+1];
+        bfs(graph, V, visited);
     }
 
     public static void createGraph(ArrayList<Edge>[] graph, int V){
@@ -51,6 +52,22 @@ public class Graphs{
                 System.out.print(graph[i].get(j).destination+"("+graph[i].get(j).weight+") ");
             }
             System.out.println();
+        }
+    }
+
+    public static void bfs(ArrayList<Edge>[] graph,int V, boolean[] visited) {
+        Queue<Integer> q=new LinkedList<>();
+        q.add(graph[0].get(0).source);
+
+        while(!q.isEmpty()){
+            int cur=q.remove();
+            if(!visited[cur]){
+                System.out.print(cur+" ");
+                visited[cur]=true;
+                for(int i=0;i<graph[cur].size();i++){
+                    q.add(graph[cur].get(i).destination);
+                }
+            }
         }
     }
 }
