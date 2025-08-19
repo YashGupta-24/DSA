@@ -17,14 +17,19 @@ public class Graphs{
         this.weight=weight;
     }
 }
-    public static void main(String[] args) {
-        int V = 4;
+    public static ArrayList<Edge>[] create(int V) {
         @SuppressWarnings("unchecked")
         ArrayList<Edge>[] graph = (ArrayList<Edge>[]) new ArrayList[V];
-        createGraph(graph, V);
+        return graph;
+        // createGraph(graph, V);
         // printNeighbors(graph);
-        boolean[] visited=new boolean[V+1];
-        bfs(graph, V, visited);
+        // boolean[] visited=new boolean[V+1];
+        // bfs(graph, V, visited);
+        // for(int i=0;i<V;i++){
+        //     if(!visited[i]){
+        //         dfs(graph, visited, 0);
+        //     }
+        // }
     }
 
     public static void createGraph(ArrayList<Edge>[] graph, int V){
@@ -43,6 +48,24 @@ public class Graphs{
 
         graph[3].add(new Edge(3, 2,-1));
         graph[3].add(new Edge(3, 1,0));
+    }
+    public static void createDirectedGraph(ArrayList<Edge>[] graph, int V){
+        for(int i=0;i<V;i++){
+            graph[i]=new ArrayList<Edge>();
+        }
+
+        graph[0].add(new Edge(0, 1,2));
+        graph[0].add(new Edge(0, 2,4));
+
+        graph[1].add(new Edge(1, 2,1));
+        graph[1].add(new Edge(1, 3,7));
+
+        graph[2].add(new Edge(2, 4,3));
+
+        graph[3].add(new Edge(3, 5,1));
+
+        graph[4].add(new Edge(4, 3,2));
+        graph[4].add(new Edge(4, 5,5));
     }
 
     public static void printNeighbors(ArrayList<Edge>[] graph){
@@ -67,6 +90,17 @@ public class Graphs{
                 for(int i=0;i<graph[cur].size();i++){
                     q.add(graph[cur].get(i).destination);
                 }
+            }
+        }
+    }
+
+    public static void dfs(ArrayList<Edge>[] graph, boolean[] visited,int curr){
+        System.out.println(curr);
+        visited[curr]=true;
+        
+        for(int i=0;i<graph[curr].size();i++){
+            if(!visited[graph[curr].get(i).destination]){
+                dfs(graph, visited, graph[curr].get(i).destination);
             }
         }
     }
