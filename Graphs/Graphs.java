@@ -37,17 +37,20 @@ public class Graphs{
             graph[i]=new ArrayList<Edge>();
         }
 
-        graph[0].add(new Edge(0, 2,2));
+        graph[0].add(new Edge(0, 1,10));
+        graph[0].add(new Edge(0, 2,15));
+        graph[0].add(new Edge(0, 3,30));
 
-        graph[2].add(new Edge(2, 0,2));
-        graph[2].add(new Edge(2, 1,10));
-        graph[2].add(new Edge(2, 3,-1));
+        graph[1].add(new Edge(1, 0,10));
+        graph[1].add(new Edge(1, 3,40));
 
-        graph[1].add(new Edge(1, 2,10));
-        graph[1].add(new Edge(1, 3,0));
-
-        graph[3].add(new Edge(3, 2,-1));
-        graph[3].add(new Edge(3, 1,0));
+        graph[2].add(new Edge(2, 0,15));
+        graph[2].add(new Edge(2, 3,50));
+        
+        graph[3].add(new Edge(3, 0,30));
+        graph[3].add(new Edge(3, 1,40));
+        graph[3].add(new Edge(3, 2,50));
+        
     }
     public static void createDirectedGraph(ArrayList<Edge>[] graph, int V){
         for(int i=0;i<V;i++){
@@ -57,15 +60,13 @@ public class Graphs{
         graph[0].add(new Edge(0, 1,2));
         graph[0].add(new Edge(0, 2,4));
 
-        graph[1].add(new Edge(1, 2,1));
-        graph[1].add(new Edge(1, 3,7));
+        graph[1].add(new Edge(1, 2,-4));
 
-        graph[2].add(new Edge(2, 4,3));
+        graph[2].add(new Edge(2, 3,2));
 
-        graph[3].add(new Edge(3, 5,1));
+        graph[3].add(new Edge(3, 4,4));
 
-        graph[4].add(new Edge(4, 3,2));
-        graph[4].add(new Edge(4, 5,5));
+        graph[4].add(new Edge(4, 1,-10));
     }
 
     public static void printNeighbors(ArrayList<Edge>[] graph){
