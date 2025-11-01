@@ -28,7 +28,8 @@ public class CombinationalSum{
     }
 
     public static void main(String[] args) {
-        int[] a={2,3,5};
-        System.out.println(combinationalSum(a, 8));
+        int[] a={10, 5, 2, 7, 1, -10};
+        Arrays.sort(a);
+        System.out.println(combinationalSum(a, 15));
     }
 }
